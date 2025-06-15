@@ -1,0 +1,66 @@
+<div class="tree-node" [class.has-children]="step.sections.length">
+  <!-- Tarjeta del nodo -->
+  <div
+    class="node-card"
+    [style.border-left]="'3px solid ' + (step.lineColor || '#555')"
+  >
+    <div>
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+    </div>
+    <div>
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+    </div>
+    <div>
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+    </div>
+    <div>
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+    </div>
+    <div>
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+      {{ step.stepName }}
+    </div>
+  </div>
+
+  <!-- Contenedor de hijos (si existen) -->
+  <div class="children-container" *ngIf="step.sections?.length">
+    <!-- Línea vertical principal -->
+    <div
+      class="vertical-line"
+      [style.background-color]="step.lineColor || '#555'"
+    ></div>
+
+    <!-- Lista de hijos -->
+    <div *ngFor="let child of step.sections" class="child-node">
+      <!-- Línea horizontal de conexión -->
+      <div
+        class="horizontal-line"
+        [style.background-color]="step.lineColor || '#555'"
+      ></div>
+
+      <!-- Llamada recursiva -->
+      <app-tree-node [step]="child" [depth]="depth + 1"></app-tree-node>
+    </div>
+  </div>
+</div>
